@@ -1,0 +1,56 @@
+import streamlit as st
+
+st.set_page_config(page_title="Corridor of No Return", page_icon="🏛️")
+
+st.title("🏛️ The Corridor of No Return")
+
+st.write("You lead your team into the corridor discovered earlier.")
+st.write("The air is cold and smells faintly of rust.")
+st.write("Your footsteps echo much longer than they should.")
+
+st.write("NPC3 suddenly whispers, 'Look at the floor…'")
+
+st.write("A dark stain stretches across the stone, disappearing into the shadows.")
+st.write("It looks like something was dragged.")
+
+choice1 = st.radio(
+    "What will you do?",
+    ("Follow the stain", "Ignore it and move forward")
+)
+
+# ---------- FOLLOW STAIN ----------
+
+if choice1 == "Follow the stain":
+
+    st.write("You signal the others to stay quiet and move forward.")
+    st.write("The stain leads to a cracked chamber with a massive hooded statue.")
+    st.write("Its stone eyes seem to watch you.")
+
+    st.write("At the base of the statue are two things:")
+    
+    choice2 = st.radio(
+        "Choose carefully:",
+        ("Take the glowing amulet", "Touch the black liquid pool")
+    )
+
+    if choice2 == "Take the glowing amulet":
+        st.write("Your fingers close around the amulet.")
+        st.write("For one second, nothing happens.")
+        st.write("Then the statue's eyes ignite with purple fire.")
+        st.write("Stone cracks. The giant moves.")
+        st.error("💀 CURSED GUARDIAN ENDING — You are crushed instantly.")
+
+    elif choice2 == "Touch the black liquid pool":
+        st.write("You kneel near the black pool.")
+        st.write("Your reflection does not match your movement.")
+        st.write("Suddenly skeletal hands burst out and grab you.")
+        st.error("💀 CLAIMED BY THE TOMB — Dragged into the abyss.")
+
+# ---------- IGNORE STAIN ----------
+
+elif choice1 == "Ignore it and move forward":
+
+    st.write("You decide not to risk it and keep walking.")
+    st.write("The corridor widens into a grand hall.")
+    st.write("At the far end sits a golden chest on a pedestal.")
+    st.success("🏆 SURVIVOR ENDING — You escape with treasure.")
